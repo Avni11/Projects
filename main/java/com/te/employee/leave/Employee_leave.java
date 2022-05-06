@@ -16,22 +16,24 @@ import com.te.employee.Employee_Info;
 @Entity
 public class Employee_leave {
 	@Id
+	@Column(name = "leave_id")
+	@GeneratedValue(strategy = GenerationType.IDENTITY)	
+	int s_n;
 	private int id;
 	@Column(nullable = false)
 	private String leave_date;
 	@Column(nullable = false)
 	private String leave_status = "pending";
-	@ManyToOne(cascade = CascadeType.ALL)
-	private Employee_Info einfo;
+
 	public Employee_leave() {
 		super();
 	}
-	public Employee_leave(int id, String leave_date, String leave_status, Employee_Info einfo) {
+
+	public Employee_leave(int id, String leave_date, String leave_status) {
 		super();
 		this.id = id;
 		this.leave_date = leave_date;
 		this.leave_status = leave_status;
-		this.einfo = einfo;
 	}
 
 	public int getId() {
@@ -58,18 +60,11 @@ public class Employee_leave {
 		this.leave_status = leave_status;
 	}
 
-	public Employee_Info getEinfo() {
-		return einfo;
-	}
-
-	public void setEinfo(Employee_Info einfo) {
-		this.einfo = einfo;
-	}
-
 	@Override
 	public String toString() {
-		return "Employee_leave [id=" + id + ", leave_date=" + leave_date + ", leave_status=" + leave_status + ", einfo="
-				+ einfo + "]";
+		return "Employee_leave [id=" + id + ", leave_date=" + leave_date + ", leave_status=" + leave_status + "]";
 	}
+
+	
 
 }

@@ -1,6 +1,5 @@
 package com.te.employee.login;
 
-import java.util.Arrays;
 import java.util.List;
 import java.util.Scanner;
 
@@ -10,7 +9,6 @@ import javax.persistence.Query;
 import com.te.employee.Employee_Info;
 import com.te.employee.Register;
 import com.te.employee.leave.Employee_leave;
-import com.te.employee.leave.Leave;
 
 public class Login1 {
 	int id;
@@ -31,7 +29,7 @@ public class Login1 {
 		query.setParameter("j", l.password);
 		Register re1 = new Register();
 		List<Employee_Info> result = query.getResultList();
-		try {
+		System.out.println(result);
 		if (!result.isEmpty()) {
 			System.out.println("Login Success!!!");
 			int n = 1;
@@ -44,14 +42,8 @@ public class Login1 {
 				Employee emp = new Employee();
 				emp.empfunc(manager,el,l.id);
 			}
-	
 		}
 		else {
-			throw new Exception();
-		}
-		}
-		catch(Exception e) {
-			e.printStackTrace();
 			System.out.println("Invalid credintials");
              System.out.println("wish to Regeister y/n?");
              if(sc.next()=="y") {

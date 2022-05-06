@@ -7,6 +7,6 @@ public class Leave {
 		System.out.println("enter your leave date");
 		el.setLeave_date(sc.next());
 		el.setLeave_status("Applied");
-		el.setEinfo(null);
+		
 	}
 }

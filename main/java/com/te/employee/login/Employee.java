@@ -30,9 +30,9 @@ public class Employee {
 					System.out.println("enter leave  date");
 					el.setLeave_date(sc.next());
 					el.setLeave_status("pending");
-					empi.setEl(Arrays.asList(el));
+					
 					manager.getTransaction().begin();
-					manager.persist(Arrays.asList(el));
+					manager.persist(el);
 					manager.getTransaction().commit();
 					System.out.println("Leave Applied");
 				} else {

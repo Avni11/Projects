@@ -21,10 +21,10 @@ public class App {
 		EntityManagerFactory factory = Persistence.createEntityManagerFactory("employee_db");
 		EntityManager manager = factory.createEntityManager();
 		EntityTransaction transaction = manager.getTransaction();
+
 		while (x != 3) {
 			System.out.println("Enter your choice 1.Register 2.Login");
 			int choice = sc.nextInt();
-			try{
 			if (choice == 1) {
 				System.out.println("enter employee id");
 				empInf.setEmployee_id(sc.nextInt());
@@ -38,17 +38,13 @@ public class App {
 			} else {
 				if (choice == 2) {
 					l.login(sc, l, manager, el);
-				}
-				else {
-					throw new Exception();
+				} else {
+					System.out.println("Enter either 1(Login) \n 2(Register) ");
 				}
 			}
-			System.out.println("enter 3 to exit /n any number to continue");
+			System.out.println("Enter 3 to exit \n Any number to continue");
 			x = sc.nextInt();
-		}catch(Exception e) {
-			e.printStackTrace();
-			System.out.println("Enter either 1(Login) \n 2(Register) ");
-		}
+
 		}
 
 	}

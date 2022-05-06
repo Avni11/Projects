@@ -25,8 +25,7 @@ public class Employee_Info {
 	private String email;
 	@Column(nullable = false)
 	private String password;
-	@OneToMany(cascade = CascadeType.ALL,mappedBy = "einfo")
-	List<Employee_leave> el;
+	
 	public Employee_Info() {
 		super();
 	}
@@ -35,14 +34,6 @@ public class Employee_Info {
 	}
 	public void setEmployee_name(String employee_name) {
 		this.employee_name = employee_name;
-	}
-
-	public List<Employee_leave> getEl() {
-		return el;
-	}
-
-	public void setEl(List<Employee_leave> el) {
-		this.el = el;
 	}
 
 	public String getEmployee_type() {
@@ -76,7 +67,7 @@ public class Employee_Info {
 	@Override
 	public String toString() {
 		return "Employee_Info [employee_id=" + employee_id + ", employee_name=" + employee_name + ", employee_type="
-				+ employee_type + ", email=" + email + ", password=" + password + ", el=" + el + "]";
+				+ employee_type + ", email=" + email + ", password=" + password + "]";
 	}
 
 }
